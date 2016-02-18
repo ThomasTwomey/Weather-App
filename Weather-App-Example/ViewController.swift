@@ -16,6 +16,7 @@ class ViewController: UIViewController, WeatherServiceDelegate {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var cityButton: UIButton!
+    @IBOutlet weak var iconImage: UIImageView!
     
     @IBAction func setCityTapped(sender: UIButton) {
         print("City Button Tapped")
@@ -68,6 +69,7 @@ class ViewController: UIViewController, WeatherServiceDelegate {
         let rounded = String(format: "%.2f", weather.tempF)
         tempLabel.text = rounded + "°"
         descriptionLabel.text = weather.description
+        iconImage.image = UIImage(named: weather.icon)
         //cityButton.setTitle(weather.cityName, forState: UIControlState.Normal)
     }
     
