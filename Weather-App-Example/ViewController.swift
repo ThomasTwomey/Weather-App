@@ -76,6 +76,19 @@ class ViewController: UIViewController, WeatherServiceDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        let topColor = UIColor(red: (24/255.0), green: (90/255.0), blue: (157/255.0), alpha: 1)
+        let bottomColor = UIColor(red: (67/255.0), green: (206/255.0), blue: (162/255.0), alpha: 1)
+        
+        let gradientColors: [CGColor] = [topColor.CGColor, bottomColor.CGColor]
+        let gradientLocations: [Float] = [0.0, 1.0]
+        
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        gradientLayer.colors = gradientColors
+        gradientLayer.locations = gradientLocations
+        
+        gradientLayer.frame = self.view.bounds
+        self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
+        
         self.weatherService.delegate = self
         
     }
